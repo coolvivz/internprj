@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="Models::CV_FINAL_SPATIAl" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_FINAL_SPATIAl"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Synonyms::COVIDSUMMARY2021">
+    <resourceUri>Synonyms::COVIDSUMMARY2021</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="CONFIRMED" aggregationType="sum"/>
+      <viewAttribute id="DEATHS" aggregationType="sum"/>
+      <viewAttribute id="RECOVERED" aggregationType="sum"/>
+      <viewAttribute id="ACTIVE" aggregationType="max"/>
+      <viewAttribute id="PROVINCE_STATE"/>
+      <viewAttribute id="COUNTRY_REGION"/>
+    
+      <viewAttribute id="GEOM3857"/>
+      <viewAttribute id="GEOMID"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Synonyms::COVIDSUMMARY2021"/></calculationView>
+</calculationViews>
+<logicalModel id="Aggregation_1">
+  <attributes>
+    <attribute id="PROVINCE_STATE" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PROVINCE_STATE"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="PROVINCE_STATE"/>
+    </attribute>
+    <attribute id="COUNTRY_REGION" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY_REGION"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="COUNTRY_REGION"/>
+    </attribute>
+    <attribute id="GEOMMM3857" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GEOM3857"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="GEOM3857"/>
+    </attribute>
+    <attribute id="GEOMID" order="8">
+      <descriptions defaultDescription="GEOMID"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="GEOMID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="CONFIRMED" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="CONFIRMED"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CONFIRMED"/>
+    </measure>
+    <measure id="DEATHS" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="DEATHS"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="DEATHS"/>
+    </measure>
+    <measure id="RECOVERED" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="RECOVERED"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="RECOVERED"/>
+    </measure>
+    <measure id="ACTIVE" order="4" aggregationType="max" measureType="simple">
+      <descriptions defaultDescription="ACTIVE"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="ACTIVE"/>
+    </measure></baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="357"/>
+      <rectangleSize height="30" width="160"/>
+    </shape></shapes>
+</layout>
+</Calculation:scenario>

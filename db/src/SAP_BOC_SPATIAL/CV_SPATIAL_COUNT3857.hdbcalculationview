@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SAP_BOC_SPATIAL::CV_SPATIAL_COUNT3857" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_SPATIAL_COUNT3857"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Synonyms::SPATIALBASE3857">
+    <resourceUri>Synonyms::SPATIALBASE3857</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="GEOMID"/>
+      <viewAttribute id="GEOMM3857"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Synonyms::SPATIALBASE3857">
+      <mapping xsi:type="Calculation:AttributeMapping" target="GEOMM3857" source="GEOM3857"/>
+    </input>
+    <filter>    </filter>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="GEOMMID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GEOMID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="GEOMID"/>
+    </attribute>
+    <attribute id="GEOMM3857" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GEOM3857"/>
+      <keyMapping columnObjectName="Projection_1" columnName="GEOMM3857"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,12 @@
+{
+  "role": {
+    "name": "Roles::MasterDemo",
+    "schema_privileges": [
+      {
+        "privileges": [
+          "SELECT"
+        ]
+      }
+    ]
+  }
+}

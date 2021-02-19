@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="Models::CV_Anlayze" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_Anlayze"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Synonyms::ANALYZESYSTEM">
+    <resourceUri>Synonyms::ANALYZESYSTEM</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="STEP_TIME"/>
+      <viewAttribute id="HOST_FILE"/>
+      <viewAttribute id="MESSAGE_TYPE"/>
+      <viewAttribute id="EVENT_MESSAGE"/>
+      <viewAttribute id="SYSTEM_NAME"/>
+      <viewAttribute id="MESSAGE_CATEGORY"/>
+      <viewAttribute id="MESSAGE_COMPONENT"/>
+      <viewAttribute id="EVENT_START"/>
+      <viewAttribute id="EVENT_END"/>
+      <viewAttribute id="EVENT_CATEGORY_I"/>
+      <viewAttribute id="BOX_HEIGHT"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Synonyms::ANALYZESYSTEM"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="STEP_TIME" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STEP_TIMES"/>
+      <keyMapping columnObjectName="Projection_1" columnName="STEP_TIME"/>
+    </attribute>
+    <attribute id="HOST_FILE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HOST_FILE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="HOST_FILE"/>
+    </attribute>
+    <attribute id="MESSAGE_TYPE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MESSAGE_TYPE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="MESSAGE_TYPE"/>
+    </attribute>
+    <attribute id="EVENT_MESSAGE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EVENT_MESSAGE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="EVENT_MESSAGE"/>
+    </attribute>
+    <attribute id="SYSTEM_NAME" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SYSTEM_NAME"/>
+      <keyMapping columnObjectName="Projection_1" columnName="SYSTEM_NAME"/>
+    </attribute>
+    <attribute id="MESSAGE_CATEGORY" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MESSAGE_CATEGORY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="MESSAGE_CATEGORY"/>
+    </attribute>
+    <attribute id="MESSAGE_COMPONENT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MESSAGE_COMPONENT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="MESSAGE_COMPONENT"/>
+    </attribute>
+    <attribute id="EVENT_START" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EVENT_START"/>
+      <keyMapping columnObjectName="Projection_1" columnName="EVENT_START"/>
+    </attribute>
+    <attribute id="EVENT_END" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EVENT_END"/>
+      <keyMapping columnObjectName="Projection_1" columnName="EVENT_END"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="EVENT_CATEGORY_I" order="10" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="EVENT_CATEGORY_I"/>
+      <measureMapping columnObjectName="Projection_1" columnName="EVENT_CATEGORY_I"/>
+    </measure>
+    <measure id="BOX_HEIGHT" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="BOX_HEIGHT"/>
+      <measureMapping columnObjectName="Projection_1" columnName="BOX_HEIGHT"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

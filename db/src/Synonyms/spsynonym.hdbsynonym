@@ -1,0 +1,152 @@
+{
+  "Synonyms::BQCOUNTIES": {
+    "target": {
+      "object": "BQCOUNTIES",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::COUNTYSPATIAL": {
+    "target": {
+      "object": "COUNTYSPATIAL",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::COVIDDATA": {
+    "target": {
+      "object": "COVIDDATA",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::COVIDSUMMARY2021": {
+    "target": {
+      "object": "COVIDSUMMARY2021",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::EMPLOYEEDATA": {
+    "target": {
+      "object": "EMPLOYEEDATA",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::FINALLOCATION": {
+    "target": {
+      "object": "FINALLOCATION",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::LOCATION": {
+    "target": {
+      "object": "LOCATION",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::SPATIALBASE": {
+    "target": {
+      "object": "SPATIALBASE",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::SPATIALBASENEW": {
+    "target": {
+      "object": "SPATIALBASENEW",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::US_COUNTIESDEMOSPATIALCOVID": {
+    "target": {
+      "object": "US_COUNTIESDEMOSPATIALCOVID",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::SPATIALBASE3857": {
+    "target": {
+      "object": "SPATIALBASE3857",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::ANALYZESYSTEM": {
+    "target": {
+      "object": "ANALYZESYSTEM",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::BQCOUNTIES_1": {
+    "target": {
+      "object": "BQCOUNTIES",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::COUNTYSPATIAL_1": {
+    "target": {
+      "object": "COUNTYSPATIAL",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::COVIDDATA_1": {
+    "target": {
+      "object": "COVIDDATA",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::COVIDSUMMARY2021_1": {
+    "target": {
+      "object": "COVIDSUMMARY2021",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::COVIDSUMMARY2021COPY": {
+    "target": {
+      "object": "COVIDSUMMARY2021COPY",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::EMPLOYEEDATA_1": {
+    "target": {
+      "object": "EMPLOYEEDATA",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::FINALLOCATION_1": {
+    "target": {
+      "object": "FINALLOCATION",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::LOCATION_1": {
+    "target": {
+      "object": "LOCATION",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::SPATIALBASE_1": {
+    "target": {
+      "object": "SPATIALBASE",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::SPATIALBASE3857_1": {
+    "target": {
+      "object": "SPATIALBASE3857",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::SPATIALBASENEW_1": {
+    "target": {
+      "object": "SPATIALBASENEW",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::US_COUNTIESDEMOSPATIALCOVID_1": {
+    "target": {
+      "object": "US_COUNTIESDEMOSPATIALCOVID",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::ANALYZESYSTEM_1": {
+    "target": {
+      "object": "ANALYZESYSTEM",
+      "schema": "BTP"
+    }
+  }
+}

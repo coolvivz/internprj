@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:DataFoundation="http://www.sap.com/ndb/BiModelDataFoundation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" id="Models::CV_CUBE_3857" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_CUBE_3857"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Synonyms::COVIDSUMMARY2021">
+    <resourceUri>Synonyms::COVIDSUMMARY2021</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="PROVINCE_STATE"/>
+      <viewAttribute id="COUNTRY_REGION"/>
+      <viewAttribute id="CONFIRMED"/>
+      <viewAttribute id="DEATHS"/>
+      <viewAttribute id="RECOVERED"/>
+      <viewAttribute id="GEOMID"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Synonyms::COVIDSUMMARY2021"/></calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="PROVINCE_STATE" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PROVINCE_STATE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="PROVINCE_STATE"/>
+    </attribute>
+    <attribute id="COUNTRY_REGION" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY_REGION"/>
+      <keyMapping columnObjectName="Projection_1" columnName="COUNTRY_REGION"/>
+    </attribute>
+    <attribute id="GEOMID" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GEOMID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="GEOMID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="CONFIRMED" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="CONFIRMED"/>
+      <measureMapping columnObjectName="Projection_1" columnName="CONFIRMED"/>
+    </measure>
+    <measure id="DEATHS" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="DEATHS"/>
+      <measureMapping columnObjectName="Projection_1" columnName="DEATHS"/>
+    </measure>
+    <measure id="RECOVERED" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="RECOVERED"/>
+      <measureMapping columnObjectName="Projection_1" columnName="RECOVERED"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions>
+    <localDimension id="LEVEL_1">
+      <attributeRef xsi:type="DataFoundation:Attribute">COUNTRY_REGION</attributeRef>
+      <attributeRef xsi:type="DataFoundation:Attribute">PROVINCE_STATE</attributeRef>
+      <hierarchies>
+        <hierarchy xsi:type="Dimension:LeveledHierarchy" id="LEVEL_1" aggregateAllNodes="true" orphanedNodesHandling="ROOT_NODES" rootNodeVisibility="ADD_ROOT_NODE" withRootNode="true" nodeStyle="NAME_PATH_ENFORCED" cacheEnabled="true" cycleHandling="BREAKUP" emptyValueIsNull="true">
+          <descriptions defaultDescription=""/>
+          <unassignedMemberProperties mode="FALSE"/>
+          <levels>
+            <level levelAttribute="COUNTRY_REGION" levelType="MDLEVEL_TYPE_REGULAR" order="1" orderAttribute="COUNTRY_REGION" sortDirection="ASC"/>
+            <level levelAttribute="PROVINCE_STATE" levelType="MDLEVEL_TYPE_REGULAR" order="2" orderAttribute="PROVINCE_STATE" sortDirection="ASC"/>
+          </levels>
+        </hierarchy>
+      </hierarchies>
+    </localDimension>
+  </localDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="357"/>
+      <rectangleSize height="30" width="160"/>
+    </shape></shapes>
+</layout>
+</Calculation:scenario>
