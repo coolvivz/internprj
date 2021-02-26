@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:DataFoundation="http://www.sap.com/ndb/BiModelDataFoundation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" id="Models::CV_AGGREGATED" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_AGGREGATED"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Synonyms::SPATIALNEWCOUNT">
+    <resourceUri>Synonyms::SPATIALNEWCOUNT</resourceUri>
+  </DataSource>
+  <DataSource id="Synonyms::COVIDSUMMARY2021">
+    <resourceUri>Synonyms::COVIDSUMMARY2021</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="COUNTRY_REGION"/>
+      <viewAttribute id="PROVINCE_STATE"/>
+      <viewAttribute id="ACTIVE" aggregationType="sum"/>
+      <viewAttribute id="CONFIRMED" aggregationType="sum"/>
+      <viewAttribute id="DEATHS" aggregationType="sum"/>
+      <viewAttribute id="RECOVERED" aggregationType="sum"/>
+    
+      <viewAttribute id="FIPS"/>
+      <viewAttribute id="ADMIN2"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Synonyms::SPATIALNEWCOUNT"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="COUNTRY_REGION"/>
+      <viewAttribute id="PROVINCE_STATE"/>
+      <viewAttribute id="ACTIVE" aggregationType="sum"/>
+      <viewAttribute id="CONFIRMED" aggregationType="sum"/>
+      <viewAttribute id="DEATHS" aggregationType="sum"/>
+      <viewAttribute id="RECOVERED" aggregationType="sum"/>
+      <viewAttribute id="LATITUDE" aggregationType="sum"/>
+      <viewAttribute id="LONGITUDE" aggregationType="sum"/>
+    
+      <viewAttribute id="ADMIN2"/>
+      <viewAttribute id="FIPS"/>
+      <viewAttribute id="GEOMID" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Aggregation_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY_REGION" source="COUNTRY_REGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PROVINCE_STATE" source="PROVINCE_STATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ACTIVE" source="ACTIVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONFIRMED" source="CONFIRMED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEATHS" source="DEATHS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECOVERED" source="RECOVERED"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADMIN2" source="ADMIN2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FIPS" source="FIPS"/>
+    </input>
+    <input node="Synonyms::COVIDSUMMARY2021">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LATITUDE" source="LATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LONGITUDE" source="LONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GEOMID" source="GEOMID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY_REGION" source="COUNTRY_REGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PROVINCE_STATE" source="PROVINCE_STATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FIPS" source="FIPS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADMIN2" source="ADMIN2"/>
+    </input>
+    <joinAttribute name="COUNTRY_REGION"/>
+    <joinAttribute name="PROVINCE_STATE"/>
+    <joinAttribute name="FIPS"/>
+    <joinAttribute name="ADMIN2"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="COUNTRY_REGION" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY_REGION"/>
+      <keyMapping columnObjectName="Join_1" columnName="COUNTRY_REGION"/>
+    </attribute>
+    <attribute id="PROVINCE_STATE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PROVINCE_STATE"/>
+      <keyMapping columnObjectName="Join_1" columnName="PROVINCE_STATE"/>
+    </attribute>
+    <attribute id="ADMIN2" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ADMIN2"/>
+      <keyMapping columnObjectName="Join_1" columnName="ADMIN2"/>
+    </attribute>
+    <attribute id="FIPS" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FIPS"/>
+      <keyMapping columnObjectName="Join_1" columnName="FIPS"/>
+    </attribute>
+    <attribute id="GEOMID" order="11">
+      <descriptions defaultDescription="GEOMID"/>
+      <keyMapping columnObjectName="Join_1" columnName="GEOMID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="ACTIVE" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="ACTIVE"/>
+      <measureMapping columnObjectName="Join_1" columnName="ACTIVE"/>
+    </measure>
+    <measure id="CONFIRMED" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="CONFIRMED"/>
+      <measureMapping columnObjectName="Join_1" columnName="CONFIRMED"/>
+    </measure>
+    <measure id="DEATHS" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="DEATHS"/>
+      <measureMapping columnObjectName="Join_1" columnName="DEATHS"/>
+    </measure>
+    <measure id="RECOVERED" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="RECOVERED"/>
+      <measureMapping columnObjectName="Join_1" columnName="RECOVERED"/>
+    </measure>
+    <measure id="LATITUDE" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="LATITUDE"/>
+      <measureMapping columnObjectName="Join_1" columnName="LATITUDE"/>
+    </measure>
+    <measure id="LONGITUDE" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="LONGITUDE"/>
+      <measureMapping columnObjectName="Join_1" columnName="LONGITUDE"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions>
+    <localDimension id="Country">
+      <attributeRef xsi:type="DataFoundation:Attribute">COUNTRY_REGION</attributeRef>
+      <attributeRef xsi:type="DataFoundation:Attribute">PROVINCE_STATE</attributeRef>
+      <attributeRef xsi:type="DataFoundation:Attribute">ADMIN2</attributeRef>
+      <hierarchies>
+        <hierarchy xsi:type="Dimension:LeveledHierarchy" id="Country" aggregateAllNodes="true" orphanedNodesHandling="ROOT_NODES" rootNodeVisibility="ADD_ROOT_NODE" withRootNode="true" nodeStyle="NAME_PATH_ENFORCED" cacheEnabled="true" cycleHandling="BREAKUP" emptyValueIsNull="true">
+          <descriptions defaultDescription="Country"/>
+          <unassignedMemberProperties mode="FALSE"/>
+          <levels>
+            <level levelAttribute="COUNTRY_REGION" levelType="MDLEVEL_TYPE_REGULAR" order="1" orderAttribute="COUNTRY_REGION" sortDirection="ASC"/>
+            <level levelAttribute="PROVINCE_STATE" levelType="MDLEVEL_TYPE_REGULAR" order="2" orderAttribute="PROVINCE_STATE" sortDirection="ASC"/>
+            <level levelAttribute="ADMIN2" levelType="MDLEVEL_TYPE_REGULAR" order="3" orderAttribute="ADMIN2" sortDirection="ASC"/>
+          </levels>
+        </hierarchy>
+      </hierarchies>
+    </localDimension>
+  </localDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="357"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggregation_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="189"/>
+    </shape>
+    <shape modelObjectName="Synonyms::COVIDSUMMARY2021" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="312" y="5"/>
+      <rectangleSize width="258"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

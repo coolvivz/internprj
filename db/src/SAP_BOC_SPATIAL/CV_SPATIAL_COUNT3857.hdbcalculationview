@@ -23,7 +23,7 @@
 </calculationViews>
 <logicalModel id="Projection_1">
   <attributes>
-    <attribute id="GEOMMID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="GEOMID_ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="GEOMID"/>
       <keyMapping columnObjectName="Projection_1" columnName="GEOMID"/>
     </attribute>

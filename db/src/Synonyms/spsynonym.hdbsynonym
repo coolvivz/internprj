@@ -148,5 +148,17 @@
       "object": "ANALYZESYSTEM",
       "schema": "BTP"
     }
+  },
+  "Synonyms::SPATIALNEWBASE": {
+    "target": {
+      "object": "SPATIALNEWBASE",
+      "schema": "BTP"
+    }
+  },
+  "Synonyms::SPATIALNEWCOUNT": {
+    "target": {
+      "object": "SPATIALNEWCOUNT",
+      "schema": "BTP"
+    }
   }
 }

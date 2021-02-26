@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SAP_BOC_SPATIAL::CV_SPATIAL_BASE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_SPATIAL_BASE"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Synonyms::SPATIALNEWBASE">
+    <resourceUri>Synonyms::SPATIALNEWBASE</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="Synonyms::SPATIALNEWBASE">
+  <attributes>
+    <attribute id="GEOMID_ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GEOMID_ID"/>
+      <keyMapping columnObjectName="SPATIALNEWBASE" columnName="GEOMID"/>
+    </attribute>
+    <attribute id="GEOM3857" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GEOM3857"/>
+      <keyMapping columnObjectName="SPATIALNEWBASE" columnName="GEOM3857"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="100" y="105"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
